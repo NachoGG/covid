@@ -1,12 +1,8 @@
 <template>
   <div id="app">
     <nav>
-      <router-link :to="{
-        name: 'cases'
-      }">Cases</router-link>
-      <router-link :to="{
-        name: 'vaccines'
-      }">Vaccines</router-link>
+      <router-link to="/">Cases</router-link>
+      <router-link to="/vaccines">Vaccines</router-link>
     </nav>
     <keep-alive>
       <router-view/>
