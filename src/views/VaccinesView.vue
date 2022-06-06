@@ -42,7 +42,12 @@ export default {
             type: Number
           },
           {
-            label: 'Administered',
+            label: 'People partially vaccinated ',
+            value: 'people_partially_vaccinated',
+            type: Number
+          },
+          {
+            label: 'Administered dose',
             value: 'administered',
             type: Number
           }
