@@ -13,6 +13,11 @@ export default {
   name: 'HomeView',
   components: {
     HelloWorld
-  }
+  },
+  data() {
+    return {
+      selectedCountrie: 'All'
+    }
+  },
 }
 </script>
