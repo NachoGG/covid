@@ -6,14 +6,19 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     nameCountries: [],
-    data: {}
+    cases: {},
+    vaccines: {}
   },
   getters: {
-    data: state => state.data,
+    cases: state => state.cases,
+    vaccines: state => state.vaccines
   },
   mutations: {
-    setData(state, payload) {
-      state.data = payload;
+    setCases(state, payload) {
+      state.cases = payload;
+    },
+    setVaccines(state, payload) {
+      state.vaccines = payload;
     },
     setNameCountries(state, payload) {
       state.nameCountries = payload;
@@ -21,7 +26,6 @@ export default new Vuex.Store({
   },
   actions: {
     getCases({ commit }) {
-      console.log('ola');
       fetch('https://covid-api.mmediagroup.fr/v1/cases', {
         method: 'GET'
       }).then(response => {
@@ -40,9 +44,18 @@ export default new Vuex.Store({
             }
           })
         ];
-        commit('setData', response);
+        commit('setCases', response);
         commit('setNameCountries', countries);
-        console.log(response, countries);
+      })
+    },
+
+    getVaccines({ commit }) {
+      fetch('https://covid-api.mmediagroup.fr/v1/vaccines', {
+        method: 'GET'
+      }).then(response => {
+        return response.json();
+      }).then(response => {
+        commit('setVaccines', response);
       })
     }
   },

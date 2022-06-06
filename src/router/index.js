@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import Table from '@/components/Table.vue';
+import Cases from '@/views/CasesView.vue';
+import Vaccines from '@/views/VaccinesView.vue';
 
 Vue.use(VueRouter)
 
@@ -9,13 +9,14 @@ const routes = [
   {
     path: '/',
     name: 'cases',
-    component: Table,
+    component: Cases,
     props: true
   },
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '/vaccines',
+    name: 'vaccines',
+    component: Vaccines,
+    props: true
   },
 ]
 

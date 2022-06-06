@@ -14,8 +14,7 @@
             :key="key">
             <td v-for="(columm, keyC) in columns"
               :key="keyC">
-              <!-- {{ item.All[columm.value] }} -->
-              {{ item.All[columm.value] ? item.All[columm.value] : key }}
+              {{ item.All[columm.value] ? format(item.All[columm.value], columm.type) : key }}
             </td>
           </tr>
         </tbody>
@@ -24,21 +23,26 @@
 </template>
 <script>
 export default {
-  name: 'Table',
   props: [
     'columns',
     'data'
-  ]
+  ],
+  methods: {
+    format(value, type) {
+      if (type == Number) {
+        return (+value).toLocaleString();
+      }
+      return value;
+    }
+  },
 }
 </script>
 <style lang="scss" scoped>
 .table-data {
-  overflow: auto;
   > table {
     width: 100%;
     thead tr td {
       font-weight: bold;
-      // background-color: red;
     }
     tbody tr {
       &:hover {
@@ -46,7 +50,6 @@ export default {
       }
       &:nth-child(2n) {
         background-color: #cecece;
-        // color: white;
         &:hover {
           background-color: #a2a0a0;
         }

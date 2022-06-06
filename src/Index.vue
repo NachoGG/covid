@@ -2,60 +2,17 @@
   <div id="app">
     <nav>
       <router-link :to="{
-        name: 'cases',
-        params: {
-          columns: columnsCases,
-          data: data
-        }
+        name: 'cases'
       }">Cases</router-link>
-      <router-link to="/vaccines">Vaccines</router-link>
+      <router-link :to="{
+        name: 'vaccines'
+      }">Vaccines</router-link>
     </nav>
-    <router-view/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
-<script>
-import { mapActions, mapGetters } from 'vuex';
-export default {
-  data() {
-    return {
-      columnsCases: [
-        {
-          label: 'Country',
-          value: 'country'
-        },
-        {
-          label: 'Capital city',
-          value: 'capital_city'
-        }, {
-          label: 'Continent',
-          value: 'continent'
-        },
-        {
-          label: 'Population',
-          value: 'population'
-        },
-        {
-          label: 'Confirmed cases',
-          value: 'confirmed'
-        },
-        {
-          label: 'Death cases',
-          value: 'deaths'
-        }
-      ]
-    }
-  },
-  mounted() {
-    this.getCases();
-  },
-  methods: {
-    ...mapActions(['getCases']),
-  },
-  computed: {
-    ...mapGetters(['data'])
-  }
-}
-</script>
 
 <style lang="scss">
 #app {
