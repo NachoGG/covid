@@ -7,7 +7,6 @@
 </template>
 <script>
 import { mapActions, mapState } from 'vuex';
-// import Table from '@/components/Table.vue';
 import Table from '../components/Table.vue';
 export default {
   components: {
@@ -37,12 +36,12 @@ export default {
             type: Number
           },
           {
-            label: 'People vaccinated ',
+            label: 'People vaccinated',
             value: 'people_vaccinated',
             type: Number
           },
           {
-            label: 'People partially vaccinated ',
+            label: 'People partially vaccinated',
             value: 'people_partially_vaccinated',
             type: Number
           },
