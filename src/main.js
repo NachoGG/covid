@@ -1,8 +1,8 @@
-import Vue from 'vue'
-import Index from './Index.vue'
-import router from './router'
-import store from './store'
-import  './assets/css/main.scss'
+import Vue from 'vue';
+import Index from './Index.vue';
+import router from './router';
+import store from './store';
+import './assets/css/main.scss';
 
 
 Vue.config.productionTip = false
